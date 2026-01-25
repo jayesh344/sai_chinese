@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sai Chinese | Kadakk Street Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RED + CREAM DNA WITH SHOP BACKGROUND ===== */
+body{
+  margin:0;
+  padding:0;
+  font-family:'Poppins',sans-serif;
+  /* SHOP PHOTO IN BACKGROUND */
+  background: 
+    linear-gradient(rgba(255,250,240,0.75), rgba(247,238,220,0.75)),
+    url("shop.jpeg") center/cover fixed no-repeat;
+  color:#4a100a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* RESPONSIVE PADDING FOR BODY */
+@media (min-width: 600px) {
+  body { padding: 50px 0; }
+}
+
+/* STEP-2: TRANSPARENT MENU CARD WITH GLASS EFFECT */
+.menu-poster{
+  width: 100%;
+  max-width:550px; 
+  margin: auto;
+  background: rgba(255, 253, 247, 0.65); 
+  backdrop-filter: blur(4px); 
+  -webkit-backdrop-filter: blur(4px); /* Safari support */
+  min-height:100vh;
+  border-left: 10px solid #b3261e; 
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  position:relative;
+  overflow: visible; 
+}
+
+.menu-poster::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  box-shadow:
+    inset 0 0 80px rgba(0,0,0,0.18),
+    inset 0 0 15px rgba(179,38,30,0.25);
+  pointer-events:none;
+  z-index: 6;
+}
+
+/* HEADER SHOP-BOARD STYLE */
+.header{
+  text-align:left;
+  padding:40px 25px;
+  background: linear-gradient(135deg,#b3261e,#6e0f09);
+  box-shadow: inset 0 -6px 0 rgba(0,0,0,0.2);
+  color: #fff;
+  position: relative;
+  z-index: 7;
+}
+
+.header h1{
+  margin:0;
+  font-size: clamp(2.2rem, 8vw, 3.2rem); /* Responsive font size */
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-shadow:
+    2px 2px 0 #000,
+    4px 4px 0 rgba(0,0,0,0.3); 
+}
+
+.trust-badge {
+  display: inline-block;
+  background: #ffeb3b;
+  color: #000;
+  padding: 4px 10px;
+  font-weight: 800;
+  font-size: 0.7rem;
+  margin-top: 15px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.header p{
+  margin:10px 0 0;
+  font-size: 1rem;
+  font-weight:400;
+  opacity: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* MENU BODY */
+.menu-body{
+  padding:30px 25px;
+  position: relative;
+  z-index: 5;
+}
+
+/* SECTION TITLES BOLD */
+.section-title{
+  display:block;
+  border-bottom: 3px solid #b3261e;
+  color:#b3261e;
+  padding:5px 0;
+  font-size:1.4rem;
+  font-weight:800;
+  margin-bottom:20px;
+  text-shadow: 1px 1px 0 #000;
+  letter-spacing: 1px; 
+}
+
+/* TAP-WORTHY ITEMS */
+.item{
+  display:flex;
+  flex-direction: column; 
+  margin-bottom:20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.item:hover{
+  transform: translateX(6px);
+  box-shadow: -6px 0 0 #b3261e;
+  background: rgba(179, 38, 30, 0.05);
+}
+
+.item-top {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap; /* Keeps price and name in line */
+}
+
+.item-name{
+  font-weight:700;
+  color: #222;
+  font-size: 1.15rem;
+}
+
+.item-desc {
+  font-size: 0.8rem;
+  color: #7a1f14;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.dots{
+  flex-grow:1;
+  border-bottom:2px dotted #cfa89f;
+  margin:0 8px;
+}
+
+.price{
+  font-weight:800;
+  color:#b3261e;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+/* TODAY'S SPECIAL GLOW */
+.special-highlight {
+  position: relative;
+  border: 2px solid #ffeb3b;
+  background: rgba(255, 253, 240, 0.7) !important;
+  animation: border-glow 2s infinite;
+}
+
+@keyframes border-glow {
+  0% { box-shadow: 0 0 5px rgba(255, 235, 59, 0.5); }
+  50% { box-shadow: 0 0 15px rgba(255, 235, 59, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(255, 235, 59, 0.5); }
+}
+
+/* STICKER STYLE TAGS */
+.tag{
+  font-size:0.65rem;
+  font-weight:800;
+  padding: 2px 6px;
+  margin-left: 8px;
+  vertical-align: middle;
+  border-radius: 3px;
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+
+.tag-hot { background: #ffeb3b; color: #000; border: 1px solid #000; }
+.tag-best { background: #b3261e; color: #fff; box-shadow: 2px 2px 0px #000; }
+
+/* INFO STRIP */
+.footer-strip{
+  padding:30px 25px;
+  background:#222;
+  color:#fff;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-info {
+  margin-bottom: 15px;
+}
+
+.footer-info strong {
+  color: #ffeb3b;
+  font-size: 0.8rem;
+  display: block;
+  text-transform: uppercase;
+}
+
+.footer-info span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+/* DISH PHOTOS */
+.dish-photo{
+  position:absolute;
+  width:150px;
+  height:150px;
+  object-fit:cover;        /* image fill karegi */
+  object-position:center; /* center se crop */
+  border-radius:50%;      /* PERFECT CIRCLE */
+  border:5px solid #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  z-index:15;
+  overflow:hidden;        /* IMPORTANT for circle */
+}
+
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(-5deg); }
+  50% { transform: translateY(-10px) rotate(-2deg); }
+  100% { transform: translateY(0px) rotate(-5deg); }
+}
+
+@keyframes float-alt {
+  0% { transform: translateY(0px) rotate(10deg); }
+  50% { transform: translateY(-10px) rotate(13deg); }
+  100% { transform: translateY(0px) rotate(10deg); }
+}
+
+/* POSITIONING FOR DESKTOP */
+.photo-1{ top:180px; left:-160px; animation: float 4s infinite ease-in-out; }
+.photo-2{ bottom:220px; left:-160px; animation: float 4.5s infinite ease-in-out; }
+.photo-3{ top:45%; right:-170px; animation: float-alt 4s infinite ease-in-out; }
+
+/* RESPONSIVE BREAKPOINT FOR SMALLER SCREENS */
+@media (max-width: 850px) {
+  .dish-photo { 
+    width: 80px; 
+    height: 80px; 
+    position: fixed; /* Keep them visible but out of text way */
+  }
+  .photo-1 { left: 10px; top: 10px; animation: none; opacity: 0.8; }
+  .photo-2 { left: 10px; bottom: 10px; animation: none; opacity: 0.8; }
+  .photo-3 { right: 10px; top: 10px; animation: none; opacity: 0.8; }
+  
+  /* Optional: Hide photos on very small screens to keep menu clean */
+  @media (max-width: 480px) {
+    .dish-photo { display: none; }
+    .menu-poster { border-left: 5px solid #b3261e; }
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="menu-poster">
+
+  <img src="noodles.jpg" class="dish-photo photo-1" alt="Noodles">
+  <img src="manchurian.jpg" class="dish-photo photo-2" alt="Manchurian">
+  <img src="rice.jpg" class="dish-photo photo-3" alt="Fried Rice">
+
+  <div class="header">
+    <h1>SAI<br>CHINESE</h1>
+    <div class="trust-badge">Since 2011 • 100% Veg</div>
+    <p>रस्ता चुकला तरी चालेल, साई चायनीज मधली चायनीज और पावभाजी नको चुकायला!</p>
+  </div>
+
+  <div class="menu-body">
+    <div class="section">
+      <div class="section-title">🔥 SPECIALS</div>
+      <div class="item special-highlight">
+        <div class="item-top">
+          <span class="item-name">Sai Chinese Special</span>
+          <span class="tag tag-best">HOUSE FAV ⭐</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">Signature Taste of Sai Chinese</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🍜 NOODLES</div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Veg Noodles</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">Classic Street Style Mix Veg</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Hakka Noodles</span>
+          <span class="tag tag-best">STAR HERO ⭐</span>
+          <span class="dots"></span>
+          <span class="price">₹75</span>
+        </div>
+        <div class="item-desc">Tossed with Butter & Love</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Schezwan Noodles</span>
+          <span class="tag tag-hot">TEEKHA 🔥</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">Full Spicy & Extra Masala</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Manchurian Noodles</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">Noodles + Manchurian Masala Mix</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Chinese Bhel</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">Crunchy Noodles + Fresh Veggies</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🍚 RICE</div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Veg Fried Rice</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">Desi Chinese at its Best</div>
+      </div>
+      <div class="item special-highlight" onclick="alert('🔥 Best Seller • Loved by Customers!')">
+        <div class="item-top">
+          <span class="item-name">Manchurian Rice</span>
+          <span class="tag tag-best">TODAY'S SPECIAL ⭐</span>
+          <span class="dots"></span>
+          <span class="price">₹80</span>
+        </div>
+        <div class="item-desc">Loaded with Fried Balls & Gravy</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Schezwan Rice</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">Aromatic & Spicy Tadka</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Soyabean Rice</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">Protein Rich Soyabean Tadka Rice</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Soyabean Manchurian Mix</span>
+          <span class="tag tag-best">NEW ⭐</span>
+          <span class="dots"></span>
+          <span class="price">₹80</span>
+        </div>
+        <div class="item-desc">Soyabean + Manchurian Ultimate Combo</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🍲 SOUPS & STARTERS</div>
+      <div class="item" onclick="alert('🌶️ Kadakk Spicy • Owner Recommended!')">
+        <div class="item-top">
+          <span class="item-name">Veg Manchurian</span>
+          <span class="tag tag-hot">KADAKK 🌶️</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">Garlic & Ginger Gravy (Full Swad)</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Manchow Soup</span>
+          <span class="dots"></span>
+          <span class="price">₹80</span>
+        </div>
+        <div class="item-desc">Hot & Spicy Chinese Style Soup</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Garlic (Lasan) Soup</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">Strong Garlic Flavour – Full Kadakk</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-strip">
+    <div class="footer-info">
+      <strong>📍 ADDRESS</strong>
+      <span>Karvand Naka, Shirpur</span>
+    </div>
+    <div class="footer-info">
+      <strong>📸 INSTAGRAM</strong>
+      <span>sai_chainese_shirpur</span>
+    </div>
+    <div class="footer-info">
+      <strong>⏰ TIME</strong>
+      <span>5:00 PM – 11:00 PM</span>
+    </div>
+    <div class="footer-info">
+      <strong>📞 PHONE PE ORDER</strong>
+      <span>+91 8888074811</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
