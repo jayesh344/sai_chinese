@@ -5,9 +5,14 @@
 <title>Sai Chinese | Kadakk Street Menu</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
 
 <style>
+/* STEP 1: Smooth Scrolling ENABLE (GLOBAL) */
+html{
+  scroll-behavior: smooth;
+}
+
 /* ===== RED + CREAM DNA WITH SHOP BACKGROUND ===== */
 body{
   margin:0;
@@ -22,6 +27,9 @@ body{
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  /* STEP 2: Mobile Touch Scroll Smoothness */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 /* RESPONSIVE PADDING FOR BODY */
@@ -59,43 +67,86 @@ body{
 .header{
   text-align:left;
   padding:40px 25px;
-  background: linear-gradient(135deg,#b3261e,#6e0f09);
+  background: linear-gradient(135deg,#8b1a12,#5a0b07); /* Dhaba Style Dark Red */
+  border-bottom: 4px solid #ffeb3b; /* Header Separation */
   box-shadow: inset 0 -6px 0 rgba(0,0,0,0.2);
   color: #fff;
   position: relative;
   z-index: 7;
 }
 
+/* TOP SMALL MARATHI LINE CSS */
+.header-top-line{
+  display:flex;
+  justify-content:space-between;
+  font-size:0.75rem;
+  font-weight:600;
+  margin-bottom:8px;
+  margin-top:-20px;
+  opacity:0.9;
+}
+.header-top-line span{
+  white-space:nowrap;
+}
+
+/* POWERFUL HEADER H1 */
 .header h1{
   margin:0;
-  font-size: clamp(2.2rem, 8vw, 3.2rem); /* Responsive font size */
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -1px;
+  font-size: clamp(2.6rem, 9vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   text-shadow:
-    2px 2px 0 #000,
-    4px 4px 0 rgba(0,0,0,0.3); 
+    3px 3px 0 #000,
+    6px 6px 0 rgba(0,0,0,0.5);
 }
 
-.trust-badge {
-  display: inline-block;
+/* STICKER STYLE TRUST BADGE */
+.trust-badge{
+  display: flex;
+  align-items: center;
+  gap: 8px;
   background: #ffeb3b;
   color: #000;
-  padding: 4px 10px;
-  font-weight: 800;
-  font-size: 0.7rem;
-  margin-top: 15px;
-  border-radius: 4px;
+  padding: 6px 14px;
+  font-weight: 900;
+  font-size: 0.75rem;
+  margin-top: 18px;
+  border-radius: 6px;
   text-transform: uppercase;
+  box-shadow: 3px 3px 0 #000;
+  transform: rotate(-2deg);
+  width: fit-content;
 }
 
+/* VEG LOGO */
+.veg-icon {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #2e7d32;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.veg-icon::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #2e7d32;
+  border-radius: 50%;
+}
+
+/* CLASSY MARATHI TAGLINE */
 .header p{
-  margin:10px 0 0;
-  font-size: 1rem;
-  font-weight:400;
+  margin-top: 14px;
+  font-size: 1.05rem;
+  font-weight: 500;
   opacity: 0.95;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  color: #ffecec;
 }
 
 /* MENU BODY */
@@ -139,7 +190,7 @@ body{
 .item-top {
   display: flex;
   align-items: baseline;
-  flex-wrap: nowrap; /* Keeps price and name in line */
+  flex-wrap: nowrap;
 }
 
 .item-name{
@@ -223,20 +274,19 @@ body{
   word-break: break-word;
 }
 
-/* DISH PHOTOS */
+/* KAAM 2: DISH PHOTOS (ALL SIZE UNIFORM) */
 .dish-photo{
   position:absolute;
-  width:150px;
-  height:150px;
-  object-fit:cover;        /* image fill karegi */
-  object-position:center; /* center se crop */
-  border-radius:50%;      /* PERFECT CIRCLE */
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:50%;
   border:5px solid #fff;
   box-shadow: 0 10px 25px rgba(0,0,0,0.35);
   z-index:15;
-  overflow:hidden;        /* IMPORTANT for circle */
+  overflow:hidden;
 }
-
 
 @keyframes float {
   0% { transform: translateY(0px) rotate(-5deg); }
@@ -250,23 +300,42 @@ body{
   100% { transform: translateY(0px) rotate(10deg); }
 }
 
-/* POSITIONING FOR DESKTOP */
-.photo-1{ top:180px; left:-160px; animation: float 4s infinite ease-in-out; }
-.photo-2{ bottom:220px; left:-160px; animation: float 4.5s infinite ease-in-out; }
-.photo-3{ top:45%; right:-170px; animation: float-alt 4s infinite ease-in-out; }
+/* POSITIONING FOR PHOTOS */
+.photo-1{ top:180px; left:-200px; animation: float 4s infinite ease-in-out; }
+.photo-2{ bottom:400px; left:-200px; animation: float 4.5s infinite ease-in-out; }
+.photo-3{ top:300px; right:-200px; animation: float-alt 4s infinite ease-in-out; }
+.photo-4{ bottom:150px; right:-200px; animation: float-alt 5s infinite ease-in-out; }
+.photo-5{ top:650px; left:-200px; animation: float 5.5s infinite ease-in-out; }
 
-/* RESPONSIVE BREAKPOINT FOR SMALLER SCREENS */
+/* UPDATE KAAM 2: Photo 6 and 7 size and animation matching others */
+.photo-6{ 
+  top:10px; 
+  right:-180px; 
+  width:180px; 
+  height:180px; 
+  animation: float 5.5s infinite ease-in-out;
+} 
+.photo-7{ 
+  bottom:10px; 
+  left:-220px; 
+  width:180px; 
+  height:180px; 
+  animation: float 5.5s infinite ease-in-out; 
+} 
+
+@media (max-width:600px){
+  body{ display:block; }
+}
+
 @media (max-width: 850px) {
   .dish-photo { 
-    width: 80px; 
-    height: 80px; 
-    position: fixed; /* Keep them visible but out of text way */
+    width: 80px; height: 80px; position: fixed;
   }
   .photo-1 { left: 10px; top: 10px; animation: none; opacity: 0.8; }
   .photo-2 { left: 10px; bottom: 10px; animation: none; opacity: 0.8; }
   .photo-3 { right: 10px; top: 10px; animation: none; opacity: 0.8; }
+  .photo-4, .photo-5, .photo-6, .photo-7 { display: none; }
   
-  /* Optional: Hide photos on very small screens to keep menu clean */
   @media (max-width: 480px) {
     .dish-photo { display: none; }
     .menu-poster { border-left: 5px solid #b3261e; }
@@ -282,16 +351,28 @@ body{
   <img src="noodles.jpg" class="dish-photo photo-1" alt="Noodles">
   <img src="manchurian.jpg" class="dish-photo photo-2" alt="Manchurian">
   <img src="rice.jpg" class="dish-photo photo-3" alt="Fried Rice">
+  <img src="manchav.jpg" class="dish-photo photo-4" alt="Soup">
+  <img src="pavbhaji.jpg" class="dish-photo photo-5" alt="Pav Bhaji">
+  <img src="bhel.jpg" class="dish-photo photo-6" alt="Chinese Bhel">
+  <img src="soyabean.jpg" class="dish-photo photo-7" alt="Special Dish">
 
   <div class="header">
-    <h1>SAI<br>CHINESE</h1>
-    <div class="trust-badge">Since 2011 • 100% Veg</div>
+    <div class="header-top-line">
+      <span class="left-text">॥ साई कृपा ॥</span>
+      <span class="right-text">॥ श्री शिवाय नमस्तुभ्यं ॥</span>
+    </div>
+
+    <h1>साई<br>चायनीज</h1>
+    <div class="trust-badge">
+      Since 2011 • 100% Veg 
+      <div class="veg-icon"></div>
+    </div>
     <p>रस्ता चुकला तरी चालेल, साई चायनीज मधली चायनीज आणि पावभाजी नको चुकायला!</p>
   </div>
 
   <div class="menu-body">
     <div class="section">
-      <div class="section-title">🔥 SPECIALS</div>
+      <div class="section-title">🔥 SPECIALS | स्पेशल</div>
       <div class="item special-highlight">
         <div class="item-top">
           <span class="item-name">Sai Chinese Special</span>
@@ -299,28 +380,57 @@ body{
           <span class="dots"></span>
           <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Signature Taste of Sai Chinese</div>
+        <div class="item-desc">साई चायनीज स्पेशल (Signature Taste)</div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-title">🍜 NOODLES</div>
+      <div class="section-title">🥘 PAV BHAJI | पावभाजी</div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Pav Bhaji</span>
+          <span class="dots"></span>
+          <span class="price">₹60</span>
+        </div>
+        <div class="item-desc">पावभाजी (Traditional Taste)</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Butter Pav Bhaji</span>
+          <span class="tag tag-best">RICH ⭐</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">बटर पावभाजी (Loaded with Amul Butter)</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Masala Pav (2 Pcs)</span>
+          <span class="dots"></span>
+          <span class="price">₹15</span>
+        </div>
+        <div class="item-desc">मसाला पाव (Spicy & Tasty)</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🍜 NOODLES | नूडल्स</div>
       <div class="item">
         <div class="item-top">
           <span class="item-name">Veg Noodles</span>
           <span class="dots"></span>
           <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Classic Street Style Mix Veg</div>
+        <div class="item-desc">व्हेज नूडल्स (Classic Street Style)</div>
       </div>
       <div class="item">
         <div class="item-top">
           <span class="item-name">Hakka Noodles</span>
           <span class="tag tag-best">STAR HERO ⭐</span>
           <span class="dots"></span>
-          <span class="price">₹75</span>
+          <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Tossed with Butter & Love</div>
+        <div class="item-desc">हक्का नूडल्स (Tossed with Butter)</div>
       </div>
       <div class="item">
         <div class="item-top">
@@ -329,7 +439,7 @@ body{
           <span class="dots"></span>
           <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Full Spicy & Extra Masala</div>
+        <div class="item-desc">शेजवान नूडल्स (Full Spicy)</div>
       </div>
       <div class="item">
         <div class="item-top">
@@ -337,36 +447,36 @@ body{
           <span class="dots"></span>
           <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Noodles + Manchurian Masala Mix</div>
+        <div class="item-desc">मंच्युरियन नूडल्स (Noodles + Manchurian)</div>
       </div>
       <div class="item">
         <div class="item-top">
           <span class="item-name">Chinese Bhel</span>
           <span class="dots"></span>
-          <span class="price">₹70</span>
+          <span class="price">₹80</span>
         </div>
-        <div class="item-desc">Crunchy Noodles + Fresh Veggies</div>
+        <div class="item-desc">चायनीज भेळ (Crunchy & Fresh)</div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-title">🍚 RICE</div>
+      <div class="section-title">🍚 RICE | राईस</div>
       <div class="item">
         <div class="item-top">
           <span class="item-name">Veg Fried Rice</span>
           <span class="dots"></span>
           <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Desi Chinese at its Best</div>
+        <div class="item-desc">व्हेज फ्राईड राइस (Desi Chinese)</div>
       </div>
-      <div class="item special-highlight" onclick="alert('🔥 Best Seller • Loved by Customers!')">
+      <div class="item special-highlight">
         <div class="item-top">
           <span class="item-name">Manchurian Rice</span>
           <span class="tag tag-best">TODAY'S SPECIAL ⭐</span>
           <span class="dots"></span>
-          <span class="price">₹80</span>
+          <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Loaded with Fried Balls & Gravy</div>
+        <div class="item-desc">मंच्युरियन राइस (Loaded with Balls)</div>
       </div>
       <div class="item">
         <div class="item-top">
@@ -374,7 +484,7 @@ body{
           <span class="dots"></span>
           <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Aromatic & Spicy Tadka</div>
+        <div class="item-desc">शेजवान राइस (Aromatic & Spicy)</div>
       </div>
       <div class="item">
         <div class="item-top">
@@ -382,29 +492,37 @@ body{
           <span class="dots"></span>
           <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Protein Rich Soyabean Tadka Rice</div>
+        <div class="item-desc">सोयाबीन राइस (Protein Rich)</div>
       </div>
       <div class="item">
         <div class="item-top">
           <span class="item-name">Soyabean Manchurian Mix</span>
           <span class="tag tag-best">NEW ⭐</span>
           <span class="dots"></span>
-          <span class="price">₹80</span>
+          <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Soyabean + Manchurian Ultimate Combo</div>
+        <div class="item-desc">सोयाबीन मंच्युरियन मिक्स (Ultimate Combo)</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-name">Soyabean Chilli</span>
+          <span class="dots"></span>
+          <span class="price">₹70</span>
+        </div>
+        <div class="item-desc">सोयाबीन चिली (Crispy & Spicy)</div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-title">🍲 SOUPS & STARTERS</div>
-      <div class="item" onclick="alert('🌶️ Kadakk Spicy • Owner Recommended!')">
+      <div class="section-title">🍲 SOUPS & STARTERS | सूप आणि स्टार्टर्स</div>
+      <div class="item">
         <div class="item-top">
           <span class="item-name">Veg Manchurian</span>
           <span class="tag tag-hot">KADAKK 🌶️</span>
           <span class="dots"></span>
           <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Garlic & Ginger Gravy (Full Swad)</div>
+        <div class="item-desc">व्हेज मंच्युरियन (Full Kadakk Swad)</div>
       </div>
       <div class="item">
         <div class="item-top">
@@ -412,7 +530,7 @@ body{
           <span class="dots"></span>
           <span class="price">₹80</span>
         </div>
-        <div class="item-desc">Hot & Spicy Chinese Style Soup</div>
+        <div class="item-desc">मंचाऊ सूप (Hot & Spicy)</div>
       </div>
       <div class="item">
         <div class="item-top">
@@ -420,14 +538,14 @@ body{
           <span class="dots"></span>
           <span class="price">₹70</span>
         </div>
-        <div class="item-desc">Strong Garlic Flavour – Full Kadakk</div>
+        <div class="item-desc">लसूण सूप (Strong Garlic Flavor)</div>
       </div>
     </div>
   </div>
 
   <div class="footer-strip">
     <div class="footer-info">
-      <strong>📍 ADDRESS</strong>
+      <strong>📍 ADDRESS | पत्ता</strong>
       <span>Karvand Naka, Shirpur</span>
     </div>
     <div class="footer-info">
@@ -435,7 +553,7 @@ body{
       <span>sai_chainese_shirpur</span>
     </div>
     <div class="footer-info">
-      <strong>⏰ TIME</strong>
+      <strong>⏰ TIME | वेळ</strong>
       <span>3:30 PM – 10:00 PM</span>
     </div>
     <div class="footer-info">
@@ -446,4 +564,4 @@ body{
 </div>
 
 </body>
-</html> 
+</html>
