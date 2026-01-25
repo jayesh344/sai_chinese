@@ -8,11 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-/* STEP 1: Smooth Scrolling ENABLE (GLOBAL) */
-html{
-  scroll-behavior: smooth;
-}
-
 /* ===== RED + CREAM DNA WITH SHOP BACKGROUND ===== */
 body{
   margin:0;
@@ -27,9 +22,6 @@ body{
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  /* STEP 2: Mobile Touch Scroll Smoothness */
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
 }
 
 /* RESPONSIVE PADDING FOR BODY */
@@ -76,7 +68,7 @@ body{
 
 .header h1{
   margin:0;
-  font-size: clamp(2.2rem, 8vw, 3.2rem); 
+  font-size: clamp(2.2rem, 8vw, 3.2rem); /* Responsive font size */
   font-weight: 800;
   line-height: 1;
   letter-spacing: -1px;
@@ -147,7 +139,7 @@ body{
 .item-top {
   display: flex;
   align-items: baseline;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap; /* Keeps price and name in line */
 }
 
 .item-name{
@@ -236,14 +228,15 @@ body{
   position:absolute;
   width:150px;
   height:150px;
-  object-fit:cover;
-  object-position:center;
-  border-radius:50%;
+  object-fit:cover;        /* image fill karegi */
+  object-position:center; /* center se crop */
+  border-radius:50%;      /* PERFECT CIRCLE */
   border:5px solid #fff;
   box-shadow: 0 10px 25px rgba(0,0,0,0.35);
   z-index:15;
-  overflow:hidden;
+  overflow:hidden;        /* IMPORTANT for circle */
 }
+
 
 @keyframes float {
   0% { transform: translateY(0px) rotate(-5deg); }
@@ -262,24 +255,18 @@ body{
 .photo-2{ bottom:220px; left:-160px; animation: float 4.5s infinite ease-in-out; }
 .photo-3{ top:45%; right:-170px; animation: float-alt 4s infinite ease-in-out; }
 
-/* STEP 3: SAFE SOLUTION for Scroll */
-@media (max-width:600px){
-  body{
-    display:block;
-  }
-}
-
 /* RESPONSIVE BREAKPOINT FOR SMALLER SCREENS */
 @media (max-width: 850px) {
   .dish-photo { 
     width: 80px; 
     height: 80px; 
-    position: fixed;
+    position: fixed; /* Keep them visible but out of text way */
   }
   .photo-1 { left: 10px; top: 10px; animation: none; opacity: 0.8; }
   .photo-2 { left: 10px; bottom: 10px; animation: none; opacity: 0.8; }
   .photo-3 { right: 10px; top: 10px; animation: none; opacity: 0.8; }
   
+  /* Optional: Hide photos on very small screens to keep menu clean */
   @media (max-width: 480px) {
     .dish-photo { display: none; }
     .menu-poster { border-left: 5px solid #b3261e; }
@@ -299,7 +286,7 @@ body{
   <div class="header">
     <h1>SAI<br>CHINESE</h1>
     <div class="trust-badge">Since 2011 • 100% Veg</div>
-    <p>रस्ता चुकला तरी chaale, साई चायनीज मधली चायनीज और पावभाजी नको चुकायला!</p>
+    <p>रस्ता चुकला तरी चालेल, साई चायनीज मधली चायनीज आणि पावभाजी नको चुकायला!</p>
   </div>
 
   <div class="menu-body">
@@ -459,4 +446,4 @@ body{
 </div>
 
 </body>
-</html>
+</html> 
