@@ -346,6 +346,25 @@ body{
     .menu-poster { border-left: 5px solid #b3261e; }
   }
 }
+
+/* STEP 2: Button ka CSS */
+.download-btn{
+  background:#ffeb3b;
+  color:#000;
+  font-weight:900;
+  border:none;
+  padding:14px 28px;
+  font-size:1rem;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:4px 4px 0 #000;
+  transition:all 0.2s ease;
+}
+
+.download-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:6px 6px 0 #000;
+}
 </style>
 </head>
 
@@ -548,6 +567,12 @@ body{
     </div>
   </div>
 
+  <div style="text-align:center; padding:20px;">
+    <button id="downloadMenu" class="download-btn">
+      📥 Download Full Menu
+    </button>
+  </div>
+
   <div class="footer-strip">
     <div class="footer-info">
       <strong>📍 ADDRESS | पत्ता</strong>
@@ -567,6 +592,24 @@ body{
     </div>
   </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+document.getElementById("downloadMenu").addEventListener("click", function () {
+  const menu = document.querySelector(".menu-poster");
+
+  html2canvas(menu, {
+    scale: 2,   // High quality
+    useCORS: true
+  }).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "Sai_Chinese_Menu.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+});
+</script>
 
 </body>
 </html>
