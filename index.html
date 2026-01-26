@@ -54,6 +54,7 @@ body{
   border-left: 10px solid #b3261e; 
   box-shadow: 0 10px 40px rgba(0,0,0,0.15);
   position:relative;
+  /* Changed to visible so photos aren't cut during download */
   overflow: visible; 
 }
 
@@ -311,22 +312,8 @@ body{
 .photo-3{ top:300px; right:-200px; animation: float-alt 4s infinite ease-in-out; }
 .photo-4{ bottom:150px; right:-200px; animation: float-alt 5s infinite ease-in-out; }
 .photo-5{ top:650px; left:-200px; animation: float 5.5s infinite ease-in-out; }
-
-/* UPDATE KAAM 2: Photo 6 and 7 size and animation matching others */
-.photo-6{ 
-  top:10px; 
-  right:-180px; 
-  width:180px; 
-  height:180px; 
-  animation: float 5.5s infinite ease-in-out;
-} 
-.photo-7{ 
-  bottom:10px; 
-  left:-220px; 
-  width:180px; 
-  height:180px; 
-  animation: float 5.5s infinite ease-in-out; 
-} 
+.photo-6{ top:10px; right:-180px; width:180px; height:180px; animation: float 5.5s infinite ease-in-out;} 
+.photo-7{ bottom:10px; left:-220px; width:180px; height:180px; animation: float 5.5s infinite ease-in-out; } 
 
 @media (max-width:600px){
   body{ display:block; }
@@ -347,7 +334,7 @@ body{
   }
 }
 
-/* STEP 2: Button ka CSS */
+/* DOWNLOAD BUTTON CSS */
 .download-btn{
   background:#ffeb3b;
   color:#000;
@@ -359,6 +346,7 @@ body{
   cursor:pointer;
   box-shadow:4px 4px 0 #000;
   transition:all 0.2s ease;
+  margin: 20px 0;
 }
 
 .download-btn:hover{
@@ -370,243 +358,143 @@ body{
 
 <body>
 
-<div class="menu-poster">
+<div id="capture-area" style="padding: 100px 300px; display: inline-block;">
+  <div class="menu-poster">
 
-  <img src="noodles.jpg" class="dish-photo photo-1" alt="Noodles">
-  <img src="manchurian.jpg" class="dish-photo photo-2" alt="Manchurian">
-  <img src="rice.jpg" class="dish-photo photo-3" alt="Fried Rice">
-  <img src="manchav.jpg" class="dish-photo photo-4" alt="Soup">
-  <img src="pavbhaji.jpg" class="dish-photo photo-5" alt="Pav Bhaji">
-  <img src="bhel.jpg" class="dish-photo photo-6" alt="Chinese Bhel">
-  <img src="soyabean.jpg" class="dish-photo photo-7" alt="Special Dish">
+    <img src="noodles.jpg" class="dish-photo photo-1" alt="Noodles">
+    <img src="manchurian.jpg" class="dish-photo photo-2" alt="Manchurian">
+    <img src="rice.jpg" class="dish-photo photo-3" alt="Fried Rice">
+    <img src="manchav.jpg" class="dish-photo photo-4" alt="Soup">
+    <img src="pavbhaji.jpg" class="dish-photo photo-5" alt="Pav Bhaji">
+    <img src="bhel.jpg" class="dish-photo photo-6" alt="Chinese Bhel">
+    <img src="soyabean.jpg" class="dish-photo photo-7" alt="Special Dish">
 
-  <div class="header">
-    <div class="header-top-line">
-      <span class="left-text">॥ साई कृपा ॥</span>
-      <span class="right-text">॥ श्री शिवाय नमस्तुभ्यं ॥</span>
+    <div class="header">
+      <div class="header-top-line">
+        <span class="left-text">॥ साई कृपा ॥</span>
+        <span class="right-text">॥ श्री शिवाय नमस्तुभ्यं ॥</span>
+      </div>
+
+      <h1>साई<br>चायनीज</h1>
+      <div class="trust-badge">
+        Since 2011 • 100% Veg 
+        <div class="veg-icon"></div>
+      </div>
+      <p>रस्ता चुकला तरी चालेल, साई चायनीज मधली चायनीज आणि पावभाजी नको चुकायला!</p>
     </div>
 
-    <h1>साई<br>चायनीज</h1>
-    <div class="trust-badge">
-      Since 2011 • 100% Veg 
-      <div class="veg-icon"></div>
-    </div>
-    <p>रस्ता चुकला तरी चालेल, साई चायनीज मधली चायनीज आणि पावभाजी नको चुकायला!</p>
-  </div>
+    <div class="menu-body">
+      <div class="section">
+        <div class="section-title">🔥 SPECIALS | स्पेशल</div>
+        <div class="item special-highlight">
+          <div class="item-top">
+            <span class="item-name">Sai Chinese Special</span>
+            <span class="tag tag-best">HOUSE FAV ⭐</span>
+            <span class="dots"></span>
+            <span class="price">₹70</span>
+          </div>
+          <div class="item-desc">साई चायनीज स्पेशल (Signature Taste)</div>
+        </div>
+      </div>
 
-  <div class="menu-body">
-    <div class="section">
-      <div class="section-title">🔥 SPECIALS | स्पेशल</div>
-      <div class="item special-highlight">
-        <div class="item-top">
-          <span class="item-name">Sai Chinese Special</span>
-          <span class="tag tag-best">HOUSE FAV ⭐</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
+      <div class="section">
+        <div class="section-title">🥘 PAV BHAJI | पावभाजी</div>
+        <div class="item">
+          <div class="item-top"><span class="item-name">Pav Bhaji</span><span class="dots"></span><span class="price">₹60</span></div>
+          <div class="item-desc">पावभाजी (Traditional Taste)</div>
         </div>
-        <div class="item-desc">साई चायनीज स्पेशल (Signature Taste)</div>
+        <div class="item">
+          <div class="item-top">
+            <span class="item-name">Butter Pav Bhaji</span>
+            <span class="tag tag-best">RICH ⭐</span>
+            <span class="dots"></span>
+            <span class="price">₹70</span>
+          </div>
+          <div class="item-desc">बटर पावभाजी (Loaded with Amul Butter)</div>
+        </div>
+        <div class="item">
+          <div class="item-top"><span class="item-name">Masala Pav (2 Pcs)</span><span class="dots"></span><span class="price">₹15</span></div>
+          <div class="item-desc">मसाला पाव (Spicy & Tasty)</div>
+        </div>
       </div>
-    </div>
 
-    <div class="section">
-      <div class="section-title">🥘 PAV BHAJI | पावभाजी</div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Pav Bhaji</span>
-          <span class="dots"></span>
-          <span class="price">₹60</span>
+      <div class="section">
+        <div class="section-title">🍜 NOODLES | नूडल्स</div>
+        <div class="item">
+          <div class="item-top"><span class="item-name">Veg Noodles</span><span class="dots"></span><span class="price">₹70</span></div>
+          <div class="item-desc">व्हेज नूडल्स (Classic Street Style)</div>
         </div>
-        <div class="item-desc">पावभाजी (Traditional Taste)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Butter Pav Bhaji</span>
-          <span class="tag tag-best">RICH ⭐</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
+        <div class="item">
+          <div class="item-top">
+            <span class="item-name">Hakka Noodles</span>
+            <span class="tag tag-best">STAR HERO ⭐</span>
+            <span class="dots"></span>
+            <span class="price">₹70</span>
+          </div>
+          <div class="item-desc">हक्का नूडल्स (Tossed with Butter)</div>
         </div>
-        <div class="item-desc">बटर पावभाजी (Loaded with Amul Butter)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Masala Pav (2 Pcs)</span>
-          <span class="dots"></span>
-          <span class="price">₹15</span>
+        <div class="item">
+          <div class="item-top">
+            <span class="item-name">Schezwan Noodles</span>
+            <span class="tag tag-hot">TEEKHA 🔥</span>
+            <span class="dots"></span>
+            <span class="price">₹70</span>
+          </div>
+          <div class="item-desc">शेजवान नूडल्स (Full Spicy)</div>
         </div>
-        <div class="item-desc">मसाला पाव (Spicy & Tasty)</div>
+        <div class="item">
+          <div class="item-top"><span class="item-name">Manchurian Noodles</span><span class="dots"></span><span class="price">₹70</span></div>
+          <div class="item-desc">मंच्युरियन नूडल्स (Noodles + Manchurian)</div>
+        </div>
       </div>
-    </div>
 
-    <div class="section">
-      <div class="section-title">🍜 NOODLES | नूडल्स</div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Veg Noodles</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
+      <div class="section">
+        <div class="section-title">🍚 RICE | राईस</div>
+        <div class="item">
+          <div class="item-top"><span class="item-name">Veg Fried Rice</span><span class="dots"></span><span class="price">₹70</span></div>
+          <div class="item-desc">व्हेज फ्राईड राइस (Desi Chinese)</div>
         </div>
-        <div class="item-desc">व्हेज नूडल्स (Classic Street Style)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Hakka Noodles</span>
-          <span class="tag tag-best">STAR HERO ⭐</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
+        <div class="item">
+          <div class="item-top"><span class="item-name">Manchurian Rice</span><span class="dots"></span><span class="price">₹70</span></div>
+          <div class="item-desc">मंच्युरियन राइस (Loaded with Balls)</div>
         </div>
-        <div class="item-desc">हक्का नूडल्स (Tossed with Butter)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Schezwan Noodles</span>
-          <span class="tag tag-hot">TEEKHA 🔥</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">शेजवान नूडल्स (Full Spicy)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Manchurian Noodles</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">मंच्युरियन नूडल्स (Noodles + Manchurian)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Chinese Bhel</span>
-          <span class="dots"></span>
-          <span class="price">₹80</span>
-        </div>
-        <div class="item-desc">चायनीज भेळ (Crunchy & Fresh)</div>
       </div>
     </div>
 
-    <div class="section">
-      <div class="section-title">🍚 RICE | राईस</div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Veg Fried Rice</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">व्हेज फ्राईड राइस (Desi Chinese)</div>
-      </div>
-      <div class="item special-highlight">
-        <div class="item-top">
-          <span class="item-name">Manchurian Rice</span>
-          <span class="tag tag-best">ALWAYS SPECIAL ⭐</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">मंच्युरियन राइस (Loaded with Balls)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Schezwan Rice</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">शेजवान राइस (Aromatic & Spicy)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Soyabean Rice</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">सोयाबीन राइस (Protein Rich)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Soyabean Manchurian Mix</span>
-          <span class="tag tag-best">NEW ⭐</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">सोयाबीन मंच्युरियन मिक्स (Ultimate Combo)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Soyabean Chilli</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">सोयाबीन चिली (Crispy & Spicy)</div>
-      </div>
+    <div style="text-align:center; padding-bottom: 20px;">
+      <button id="downloadMenu" class="download-btn">📥 Download Full Menu (Desktop Style)</button>
     </div>
 
-    <div class="section">
-      <div class="section-title">🍲 SOUPS & STARTERS | सूप आणि स्टार्टर्स</div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Veg Manchurian</span>
-          <span class="tag tag-hot">KADAKK 🌶️</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">व्हेज मंच्युरियन (Full Kadakk Swad)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Manchow Soup</span>
-          <span class="dots"></span>
-          <span class="price">₹80</span>
-        </div>
-        <div class="item-desc">मंचाऊ सूप (Hot & Spicy)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Garlic (Lasan) Soup</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">लसूण सूप (Strong Garlic Flavor)</div>
-      </div>
-    </div>
-  </div>
-
-  <div style="text-align:center; padding:20px;">
-    <button id="downloadMenu" class="download-btn">
-      📥 Download Full Menu
-    </button>
-  </div>
-
-  <div class="footer-strip">
-    <div class="footer-info">
-      <strong>📍 ADDRESS | पत्ता</strong>
-      <span>Karvand Naka, Shirpur</span>
-    </div>
-    <div class="footer-info">
-      <strong>📸 INSTAGRAM</strong>
-      <span>sai_chainese_shirpur</span>
-    </div>
-    <div class="footer-info">
-      <strong>⏰ TIME | वेळ</strong>
-      <span>3:30 PM – 10:00 PM</span>
-    </div>
-    <div class="footer-info">
-      <strong>📞 PHONE PE ORDER</strong>
-      <span>+91 8888074811</span>
+    <div class="footer-strip">
+      <div class="footer-info"><strong>📍 ADDRESS</strong><span>Karvand Naka, Shirpur</span></div>
+      <div class="footer-info"><strong>📸 INSTAGRAM</strong><span>sai_chainese_shirpur</span></div>
+      <div class="footer-info"><strong>⏰ TIME</strong><span>3:30 PM – 10:00 PM</span></div>
+      <div class="footer-info"><strong>📞 PHONE PE</strong><span>+91 8888074811</span></div>
     </div>
   </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
 <script>
 document.getElementById("downloadMenu").addEventListener("click", function () {
-  const menu = document.querySelector(".menu-poster");
+  const captureArea = document.getElementById("capture-area");
+  const btn = this;
+  
+  // Hide button during capture
+  btn.style.opacity = "0";
 
-  html2canvas(menu, {
-    scale: 2,   // High quality
-    useCORS: true
+  html2canvas(captureArea, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: null,
+    // Force desktop view for the screenshot
+    windowWidth: 1200 
   }).then(canvas => {
     const link = document.createElement("a");
-    link.download = "Sai_Chinese_Menu.png";
+    link.download = "Sai_Chinese_Menu_Full.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
+    btn.style.opacity = "1";
   });
 });
 </script>
