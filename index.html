@@ -7,6 +7,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <style>
 /* STEP 1: Smooth Scrolling ENABLE (GLOBAL) */
 html{
@@ -346,6 +349,27 @@ body{
     .menu-poster { border-left: 5px solid #b3261e; }
   }
 }
+
+/* STEP 2: DOWNLOAD PDF BUTTON CSS ADDED */
+.download-btn{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #b3261e;
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #000;
+  z-index: 9999;
+}
+
+.download-btn:hover{
+  background:#8b1a12;
+}
 </style>
 </head>
 
@@ -567,6 +591,35 @@ body{
     </div>
   </div>
 </div>
+
+<button class="download-btn" onclick="downloadMenuPDF()">
+  ⬇️ Download Menu PDF
+</button>
+
+<script>
+async function downloadMenuPDF() {
+  const { jsPDF } = window.jspdf;
+  const menu = document.querySelector('.menu-poster');
+
+  // Temporary fix for fixed images
+  window.scrollTo(0,0);
+
+  const canvas = await html2canvas(menu, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: null
+  });
+
+  const imgData = canvas.toDataURL('image/jpeg', 1.0);
+  const pdf = new jsPDF('p', 'mm', 'a4');
+
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+  pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+  pdf.save('Sai-Chinese-Menu.pdf');
+}
+</script>
 
 </body>
 </html>
