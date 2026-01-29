@@ -21,7 +21,6 @@ body{
   margin:0;
   padding:0;
   font-family:'Poppins',sans-serif;
-  /* SHOP PHOTO IN BACKGROUND */
   background: 
     linear-gradient(rgba(255,250,240,0.75), rgba(247,238,220,0.75)),
     url("shop.jpeg") center/cover fixed no-repeat;
@@ -30,12 +29,10 @@ body{
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  /* STEP 2: Mobile Touch Scroll Smoothness */
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
 }
 
-/* RESPONSIVE PADDING FOR BODY */
 @media (min-width: 600px) {
   body { padding: 50px 0; }
 }
@@ -52,7 +49,7 @@ body{
     rgba(21, 198, 221, 0.7)
   );
   backdrop-filter: blur(4px); 
-  -webkit-backdrop-filter: blur(4px); /* Safari support */
+  -webkit-backdrop-filter: blur(4px); 
   min-height:100vh;
   border-left: 10px solid #b3261e; 
   box-shadow: 0 10px 40px rgba(0,0,0,0.15);
@@ -75,15 +72,14 @@ body{
 .header{
   text-align:left;
   padding:40px 25px;
-  background: linear-gradient(135deg,#8b1a12,#5a0b07); /* Dhaba Style Dark Red */
-  border-bottom: 4px solid #ffeb3b; /* Header Separation */
+  background: linear-gradient(135deg,#8b1a12,#5a0b07); 
+  border-bottom: 4px solid #ffeb3b; 
   box-shadow: inset 0 -6px 0 rgba(0,0,0,0.2);
   color: #fff;
   position: relative;
   z-index: 7;
 }
 
-/* TOP SMALL MARATHI LINE CSS */
 .header-top-line{
   display:flex;
   justify-content:space-between;
@@ -93,11 +89,7 @@ body{
   margin-top:-20px;
   opacity:0.9;
 }
-.header-top-line span{
-  white-space:nowrap;
-}
 
-/* POWERFUL HEADER H1 */
 .header h1{
   margin:0;
   font-size: clamp(2.6rem, 9vw, 3.8rem);
@@ -105,12 +97,9 @@ body{
   line-height: 1.05;
   letter-spacing: 1px;
   text-transform: uppercase;
-  text-shadow:
-    3px 3px 0 #000,
-    6px 6px 0 rgba(0,0,0,0.5);
+  text-shadow: 3px 3px 0 #000, 6px 6px 0 rgba(0,0,0,0.5);
 }
 
-/* STICKER STYLE TRUST BADGE */
 .trust-badge{
   display: flex;
   align-items: center;
@@ -128,7 +117,6 @@ body{
   width: fit-content;
 }
 
-/* VEG LOGO */
 .veg-icon {
   width: 14px;
   height: 14px;
@@ -146,25 +134,19 @@ body{
   border-radius: 50%;
 }
 
-/* CLASSY MARATHI TAGLINE */
 .header p{
   margin-top: 14px;
   font-size: 1.05rem;
   font-weight: 500;
-  opacity: 0.95;
-  text-transform: none;
-  letter-spacing: 0.3px;
   color: #ffecec;
 }
 
-/* MENU BODY */
 .menu-body{
   padding:30px 25px;
   position: relative;
   z-index: 5;
 }
 
-/* SECTION TITLES BOLD */
 .section-title{
   display:block;
   border-bottom: 3px solid #b3261e;
@@ -174,10 +156,8 @@ body{
   font-weight:800;
   margin-bottom:20px;
   text-shadow: 1px 1px 0 #000;
-  letter-spacing: 1px; 
 }
 
-/* TAP-WORTHY ITEMS */
 .item{
   display:flex;
   flex-direction: column; 
@@ -195,41 +175,13 @@ body{
   background: rgba(179, 38, 30, 0.05);
 }
 
-.item-top {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: nowrap;
-}
+.item-top { display: flex; align-items: baseline; }
+.item-name{ font-weight:700; color: #222; font-size: 1.15rem; }
+.item-desc { font-size: 0.8rem; color: #7a1f14; font-weight: 500; margin-top: 2px; }
+.dots{ flex-grow:1; border-bottom:2px dotted #cfa89f; margin:0 8px; }
+.price{ font-weight:800; color:#b3261e; font-size: 1.2rem; }
 
-.item-name{
-  font-weight:700;
-  color: #222;
-  font-size: 1.15rem;
-}
-
-.item-desc {
-  font-size: 0.8rem;
-  color: #7a1f14;
-  font-weight: 500;
-  margin-top: 2px;
-}
-
-.dots{
-  flex-grow:1;
-  border-bottom:2px dotted #cfa89f;
-  margin:0 8px;
-}
-
-.price{
-  font-weight:800;
-  color:#b3261e;
-  font-size: 1.2rem;
-  transition: transform 0.2s ease;
-}
-
-/* TODAY'S SPECIAL GLOW */
 .special-highlight {
-  position: relative;
   border: 2px solid #ffeb3b;
   background: rgba(255, 253, 240, 0.7) !important;
   animation: border-glow 2s infinite;
@@ -241,116 +193,41 @@ body{
   100% { box-shadow: 0 0 5px rgba(255, 235, 59, 0.5); }
 }
 
-/* STICKER STYLE TAGS */
-.tag{
-  font-size:0.65rem;
-  font-weight:800;
-  padding: 2px 6px;
-  margin-left: 8px;
-  vertical-align: middle;
-  border-radius: 3px;
-  display: inline-block;
-  transform: rotate(-2deg);
-}
-
+.tag{ font-size:0.65rem; font-weight:800; padding: 2px 6px; margin-left: 8px; border-radius: 3px; display: inline-block; transform: rotate(-2deg); }
 .tag-hot { background: #ffeb3b; color: #000; border: 1px solid #000; }
 .tag-best { background: #b3261e; color: #fff; box-shadow: 2px 2px 0px #000; }
 
-/* INFO STRIP */
-.footer-strip{
-  padding:30px 25px;
-  background:#222;
-  color:#fff;
-  position: relative;
-  z-index: 10;
-}
+.footer-strip{ padding:30px 25px; background:#222; color:#fff; position: relative; z-index: 10; }
+.footer-info { margin-bottom: 15px; }
+.footer-info strong { color: #ffeb3b; font-size: 0.8rem; display: block; text-transform: uppercase; }
+.footer-info span { font-size: 1.1rem; font-weight: 600; }
 
-.footer-info {
-  margin-bottom: 15px;
-}
+/* DISH PHOTOS */
+.dish-photo{ position:absolute; width:180px; height:180px; object-fit:cover; border-radius:50%; border:5px solid #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.35); z-index:15; }
+@keyframes float { 0% { transform: translateY(0px) rotate(-5deg); } 50% { transform: translateY(-10px) rotate(-2deg); } 100% { transform: translateY(0px) rotate(-5deg); } }
+@keyframes float-alt { 0% { transform: translateY(0px) rotate(10deg); } 50% { transform: translateY(-10px) rotate(13deg); } 100% { transform: translateY(0px) rotate(10deg); } }
 
-.footer-info strong {
-  color: #ffeb3b;
-  font-size: 0.8rem;
-  display: block;
-  text-transform: uppercase;
-}
-
-.footer-info span {
-  font-size: 1.1rem;
-  font-weight: 600;
-  word-break: break-word;
-}
-
-/* KAAM 2: DISH PHOTOS (ALL SIZE UNIFORM) */
-.dish-photo{
-  position:absolute;
-  width:180px;
-  height:180px;
-  object-fit:cover;
-  object-position:center;
-  border-radius:50%;
-  border:5px solid #fff;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-  z-index:15;
-  overflow:hidden;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px) rotate(-5deg); }
-  50% { transform: translateY(-10px) rotate(-2deg); }
-  100% { transform: translateY(0px) rotate(-5deg); }
-}
-
-@keyframes float-alt {
-  0% { transform: translateY(0px) rotate(10deg); }
-  50% { transform: translateY(-10px) rotate(13deg); }
-  100% { transform: translateY(0px) rotate(10deg); }
-}
-
-/* POSITIONING FOR PHOTOS */
 .photo-1{ top:180px; left:-200px; animation: float 4s infinite ease-in-out; }
 .photo-2{ bottom:400px; left:-200px; animation: float 4.5s infinite ease-in-out; }
 .photo-3{ top:300px; right:-200px; animation: float-alt 4s infinite ease-in-out; }
 .photo-4{ bottom:150px; right:-200px; animation: float-alt 5s infinite ease-in-out; }
 .photo-5{ top:650px; left:-200px; animation: float 5.5s infinite ease-in-out; }
-
-/* UPDATE KAAM 2: Photo 6 and 7 size and animation matching others */
-.photo-6{ 
-  top:10px; 
-  right:-180px; 
-  width:180px; 
-  height:180px; 
-  animation: float 5.5s infinite ease-in-out;
-} 
-.photo-7{ 
-  bottom:10px; 
-  left:-220px; 
-  width:180px; 
-  height:180px; 
-  animation: float 5.5s infinite ease-in-out; 
-} 
-
-@media (max-width:600px){
-  body{ display:block; }
-}
+.photo-6{ top:10px; right:-180px; width:180px; height:180px; animation: float 5.5s infinite ease-in-out; } 
+.photo-7{ bottom:10px; left:-220px; width:180px; height:180px; animation: float 5.5s infinite ease-in-out; } 
 
 @media (max-width: 850px) {
-  .dish-photo { 
-    width: 80px; height: 80px; position: fixed;
-  }
-  .photo-1 { left: 10px; top: 10px; animation: none; opacity: 0.8; }
-  .photo-2 { left: 10px; bottom: 10px; animation: none; opacity: 0.8; }
-  .photo-3 { right: 10px; top: 10px; animation: none; opacity: 0.8; }
+  .dish-photo { width: 80px; height: 80px; position: fixed; opacity: 0.8; }
+  .photo-1 { left: 10px; top: 10px; }
+  .photo-2 { left: 10px; bottom: 10px; }
+  .photo-3 { right: 10px; top: 10px; }
   .photo-4, .photo-5, .photo-6, .photo-7 { display: none; }
-  
-  @media (max-width: 480px) {
-    .dish-photo { display: none; }
-    .menu-poster { border-left: 5px solid #b3261e; }
-  }
 }
 
-/* STEP 2: DOWNLOAD PDF BUTTON CSS ADDED */
+@media (max-width: 480px) {
+    .dish-photo { display: none; }
+}
+
+/* STEP 2: DOWNLOAD BUTTON CSS */
 .download-btn{
   position: fixed;
   bottom: 20px;
@@ -366,17 +243,13 @@ body{
   box-shadow: 4px 4px 0 #000;
   z-index: 9999;
 }
-
-.download-btn:hover{
-  background:#8b1a12;
-}
+.download-btn:hover{ background:#8b1a12; }
 </style>
 </head>
 
 <body>
 
 <div class="menu-poster">
-
   <img src="noodles.jpg" class="dish-photo photo-1" alt="Noodles">
   <img src="manchurian.jpg" class="dish-photo photo-2" alt="Manchurian">
   <img src="rice.jpg" class="dish-photo photo-3" alt="Fried Rice">
@@ -387,15 +260,11 @@ body{
 
   <div class="header">
     <div class="header-top-line">
-      <span class="left-text">॥ साई कृपा ॥</span>
-      <span class="right-text">॥ श्री शिवाय नमस्तुभ्यं ॥</span>
+      <span>॥ साई कृपा ॥</span>
+      <span>॥ श्री शिवाय नमस्तुभ्यं ॥</span>
     </div>
-
     <h1>साई<br>चायनीज</h1>
-    <div class="trust-badge">
-      Since 2011 • 100% Veg 
-      <div class="veg-icon"></div>
-    </div>
+    <div class="trust-badge">Since 2011 • 100% Veg <div class="veg-icon"></div></div>
     <p>रस्ता चुकला तरी चालेल, साई चायनीज मधली चायनीज आणि पावभाजी नको चुकायला!</p>
   </div>
 
@@ -415,180 +284,36 @@ body{
 
     <div class="section">
       <div class="section-title">🥘 PAV BHAJI | पावभाजी</div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Pav Bhaji</span>
-          <span class="dots"></span>
-          <span class="price">₹60</span>
-        </div>
-        <div class="item-desc">पावभाजी (Traditional Taste)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Butter Pav Bhaji</span>
-          <span class="tag tag-best">RICH ⭐</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">बटर पावभाजी (Loaded with Amul Butter)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Masala Pav (2 Pcs)</span>
-          <span class="dots"></span>
-          <span class="price">₹15</span>
-        </div>
-        <div class="item-desc">मसाला पाव (Spicy & Tasty)</div>
-      </div>
+      <div class="item"><div class="item-top"><span class="item-name">Pav Bhaji</span><span class="dots"></span><span class="price">₹60</span></div><div class="item-desc">पावभाजी (Traditional Taste)</div></div>
+      <div class="item"><div class="item-top"><span class="item-name">Butter Pav Bhaji</span><span class="tag tag-best">RICH ⭐</span><span class="dots"></span><span class="price">₹70</span></div><div class="item-desc">बटर पावभाजी (Loaded with Amul Butter)</div></div>
     </div>
 
     <div class="section">
       <div class="section-title">🍜 NOODLES | नूडल्स</div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Veg Noodles</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">व्हेज नूडल्स (Classic Street Style)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Hakka Noodles</span>
-          <span class="tag tag-best">STAR HERO ⭐</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">हक्का नूडल्स (Tossed with Butter)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Schezwan Noodles</span>
-          <span class="tag tag-hot">TEEKHA 🔥</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">शेजवान नूडल्स (Full Spicy)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Manchurian Noodles</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">मंच्युरियन नूडल्स (Noodles + Manchurian)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Chinese Bhel</span>
-          <span class="dots"></span>
-          <span class="price">₹80</span>
-        </div>
-        <div class="item-desc">चायनीज भेळ (Crunchy & Fresh)</div>
-      </div>
+      <div class="item"><div class="item-top"><span class="item-name">Veg Noodles</span><span class="dots"></span><span class="price">₹70</span></div></div>
+      <div class="item"><div class="item-top"><span class="item-name">Hakka Noodles</span><span class="tag tag-best">STAR HERO ⭐</span><span class="dots"></span><span class="price">₹70</span></div></div>
+      <div class="item"><div class="item-top"><span class="item-name">Schezwan Noodles</span><span class="tag tag-hot">TEEKHA 🔥</span><span class="dots"></span><span class="price">₹70</span></div></div>
     </div>
 
     <div class="section">
       <div class="section-title">🍚 RICE | राईस</div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Veg Fried Rice</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">व्हेज फ्राईड राइस (Desi Chinese)</div>
-      </div>
-      <div class="item special-highlight">
-        <div class="item-top">
-          <span class="item-name">Manchurian Rice</span>
-          <span class="tag tag-best">ALWAYS SPECIAL ⭐</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">मंच्युरियन राइस (Loaded with Balls)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Schezwan Rice</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">शेजवान राइस (Aromatic & Spicy)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Soyabean Rice</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">सोयाबीन राइस (Protein Rich)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Soyabean Manchurian Mix</span>
-          <span class="tag tag-best">NEW ⭐</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">सोयाबीन मंच्युरियन मिक्स (Ultimate Combo)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Soyabean Chilli</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">सोयाबीन चिली (Crispy & Spicy)</div>
-      </div>
+      <div class="item"><div class="item-top"><span class="item-name">Veg Fried Rice</span><span class="dots"></span><span class="price">₹70</span></div></div>
+      <div class="item special-highlight"><div class="item-top"><span class="item-name">Manchurian Rice</span><span class="tag tag-best">ALWAYS SPECIAL ⭐</span><span class="dots"></span><span class="price">₹70</span></div></div>
+      <div class="item"><div class="item-top"><span class="item-name">Soyabean Rice</span><span class="dots"></span><span class="price">₹70</span></div></div>
     </div>
 
     <div class="section">
       <div class="section-title">🍲 SOUPS & STARTERS | सूप आणि स्टार्टर्स</div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Veg Manchurian</span>
-          <span class="tag tag-hot">KADAKK 🌶️</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">व्हेज मंच्युरियन (Full Kadakk Swad)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Manchow Soup</span>
-          <span class="dots"></span>
-          <span class="price">₹80</span>
-        </div>
-        <div class="item-desc">मंचाऊ सूप (Hot & Spicy)</div>
-      </div>
-      <div class="item">
-        <div class="item-top">
-          <span class="item-name">Garlic (Lasan) Soup</span>
-          <span class="dots"></span>
-          <span class="price">₹70</span>
-        </div>
-        <div class="item-desc">लसूण सूप (Strong Garlic Flavor)</div>
-      </div>
+      <div class="item"><div class="item-top"><span class="item-name">Veg Manchurian</span><span class="tag tag-hot">KADAKK 🌶️</span><span class="dots"></span><span class="price">₹70</span></div></div>
+      <div class="item"><div class="item-top"><span class="item-name">Manchow Soup</span><span class="dots"></span><span class="price">₹80</span></div></div>
     </div>
   </div>
 
   <div class="footer-strip">
-    <div class="footer-info">
-      <strong>📍 ADDRESS | पत्ता</strong>
-      <span>Karvand Naka, Shirpur</span>
-    </div>
-    <div class="footer-info">
-      <strong>📸 INSTAGRAM</strong>
-      <span>sai_chainese_shirpur</span>
-    </div>
-    <div class="footer-info">
-      <strong>⏰ TIME | वेळ</strong>
-      <span>3:30 PM – 10:00 PM</span>
-    </div>
-    <div class="footer-info">
-      <strong>📞 PHONE PE ORDER</strong>
-      <span>+91 8888074811</span>
-    </div>
+    <div class="footer-info"><strong>📍 ADDRESS | पत्ता</strong><span>Karvand Naka, Shirpur</span></div>
+    <div class="footer-info"><strong>📸 INSTAGRAM</strong><span>sai_chainese_shirpur</span></div>
+    <div class="footer-info"><strong>⏰ TIME | वेळ</strong><span>3:30 PM – 10:00 PM</span></div>
+    <div class="footer-info"><strong>📞 PHONE PE ORDER</strong><span>+91 8888074811</span></div>
   </div>
 </div>
 
@@ -601,13 +326,17 @@ async function downloadMenuPDF() {
   const { jsPDF } = window.jspdf;
   const menu = document.querySelector('.menu-poster');
 
-  // Temporary fix for fixed images
+  // Page ko top pe le jana fix hai
   window.scrollTo(0,0);
 
+  // Is setup se pura scrollable content capture hoga
   const canvas = await html2canvas(menu, {
     scale: 2,
     useCORS: true,
-    backgroundColor: null
+    backgroundColor: null,
+    scrollY: 0,
+    windowHeight: menu.scrollHeight,
+    height: menu.scrollHeight
   });
 
   const imgData = canvas.toDataURL('image/jpeg', 1.0);
